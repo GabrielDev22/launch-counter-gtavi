@@ -1,0 +1,38 @@
+<div class="gta-wrap">
+  <div class="hero">
+    <div class="sun-glow"></div>
+    <div class="sun"></div>
+    <div class="skyline">
+      <svg-icon src="assets/city-gtavi.svg"></svg-icon>
+    </div>
+    <svg-icon src="assets/tower-right.svg"></svg-icon>
+    <svg-icon src="assets/tower-left.svg"></svg-icon>
+    <div class="ocean"><div class="ocean-reflection"></div></div>
+    <div class="hero-content">
+      <div class="gta-logo">Grand Theft Auto</div>
+      <div class="vi-badge">VI</div>
+      <div class="launch-label">&#9679; Lanzamiento oficial &#9679;</div>
+    </div>
+  </div>
+
+  <div class="countdown-section">
+    <div class="info-bar">
+      <div class="info-date">19 Noviembre 2026</div>
+      <div class="info-platform">PS5 &nbsp;&#183;&nbsp; Xbox Series X</div>
+    </div>
+    <div class="countdown-grid">
+      <div class="unit-card"><span class="unit-number">{{this.cdDays}}</span><span class="unit-label">Días</span></div>
+      <div class="unit-card"><span class="unit-number">{{this.cdHours}}</span><span class="unit-label">Horas</span></div>
+      <div class="unit-card"><span class="unit-number">{{this.cdMins}}</span><span class="unit-label">Minutos</span></div>
+      <div class="unit-card"><span class="unit-number">{{this.cdSecs}}</span><span class="unit-label">Segundos</span></div>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="prog-fill" [style.width]="this.progFill"></div></div>
+    <div class="progress-labels"><span>Anuncio trailer 1</span><span>{{this.progPct}} — % completado</span><span>Lanzamiento</span></div>
+    <div class="tags">
+      <div class="tag"><a class="text-decoration-none text-reset" href="https://www.rockstargames.com/mx/games/vicecity" target="_blank">Vice City</a></div>
+      <div class="tag">Open World</div>
+      <div class="tag"><a class="text-decoration-none text-reset" href="https://www.rockstargames.com/es/" target="_blank">Rockstar Games</a></div>
+      <div class="tag">2026</div>
+    </div>
+  </div>
+</div>
