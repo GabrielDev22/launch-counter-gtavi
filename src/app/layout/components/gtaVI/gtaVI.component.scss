@@ -49,7 +49,7 @@
     left: 0; 
     right: 0;
     height: 55px;
-    background: linear-gradient(180deg, #1a3a5e 0%, #0d2340 100%);
+    background: linear-gradient(180deg, #6366F1 0%, #FF5CA8 100%);
     border-top: 2px solid rgba(255,160,60,0.4);
   }
   .ocean-reflection {
@@ -76,7 +76,7 @@
   .gta-logo {
     font-size: 22px;
     letter-spacing: 6px;
-    color: rgba(255,255,255,0.5);
+    color: rgba(255, 255, 255, 0.781);
     text-transform: uppercase;
     margin-bottom: 6px;
   }
@@ -85,7 +85,13 @@
     font-size: 96px;
     font-weight: 700;
     line-height: 1;
-    background: linear-gradient(135deg, #ff6a00 0%, #ff0070 50%, #9b00ff 100%);
+    background: linear-gradient(
+      to bottom,
+      #6366F1,
+      #D946EF,
+      #FF5CA8,
+      #FF8A3D
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
