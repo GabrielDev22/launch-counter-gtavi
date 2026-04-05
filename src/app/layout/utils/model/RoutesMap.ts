@@ -1,7 +1,7 @@
 
 
 export const ROUTES_MAP = {
-  HOME: '/inicio',
+  HOME: '',
   NOTIFICIE: '/noticies',
   MAP:'/map',
   CHARACTERS: '/characters',

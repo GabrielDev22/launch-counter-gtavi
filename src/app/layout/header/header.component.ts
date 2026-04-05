@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { ROUTES_MAP } from '../../utils/model/RoutesMap';
+import { ROUTES_MAP } from '../utils/model/RoutesMap';
+
 
 @Component({
   selector: 'app-header',
