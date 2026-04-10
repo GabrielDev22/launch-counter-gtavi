@@ -1,0 +1,204 @@
+// ============================================================
+// base_gta.scss — Design System Base
+// Fuente principal para todas las nuevas visuales del proyecto.
+// Importar este archivo en cualquier componente nuevo.
+// ============================================================
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&display=swap');
+
+// =====================
+// COLORES BASE
+// =====================
+
+// Fondos
+$bg-primary:    #0a0a0a;
+$bg-surface:    #111111;
+$bg-overlay:    rgba(255, 255, 255, 0.04);
+
+// Acento naranja (color principal de marca)
+$accent-orange:       #ff6a00;
+$accent-orange-hot:   #ff8c00;
+$accent-orange-dim:   rgba(255, 80, 0, 0.15);
+$accent-orange-glow:  rgba(255, 80, 0, 0.35);
+
+// Acento rosa / rojo
+$accent-pink:   #ff0070;
+$accent-red:    #ff3a00;
+$accent-crimson:#c0003e;
+$accent-rose:   #FF5CA8;
+
+// Acento púrpura / violeta
+$accent-violet: #6366F1;
+$accent-purple: #D946EF;
+$bg-deep-purple:#1a0a1e;
+$bg-mid-purple: #2d0a2e;
+
+// Texto
+$text-primary:  rgba(255, 255, 255, 1);
+$text-muted:    rgba(255, 255, 255, 0.55);
+$text-subtle:   rgba(255, 255, 255, 0.35);
+$text-ghost:    rgba(255, 255, 255, 0.25);
+$text-gold:     rgba(255, 200, 100, 0.9);
+$text-gold-dim: rgba(255, 200, 100, 0.8);
+
+// Bordes
+$border-orange:     rgba(255, 80, 0, 0.20);
+$border-orange-md:  rgba(255, 80, 0, 0.25);
+$border-subtle:     rgba(255, 255, 255, 0.08);
+$border-dim:        rgba(255, 255, 255, 0.10);
+
+
+// =====================
+// TIPOGRAFÍA
+// =====================
+
+$font-gta:     'Oswald', sans-serif;
+
+// Escala (alineada con typography.scss)
+$text-xs:   10px;
+$text-sm:   12px;
+$text-base: 14px;
+$text-md:   16px;
+$text-lg:   18px;
+$text-xl:   22px;
+$text-2xl:  42px;
+$text-hero: 96px;
+
+// Letter spacing
+$tracking-wide:  1.5px;
+$tracking-wider: 2px;
+$tracking-title: 3px;
+$tracking-hero:  6px;
+
+
+// =====================
+// GRADIENTES
+// =====================
+
+// Gradiente principal de marca (naranja → rosa) — el más usado
+$gradient-brand: linear-gradient(135deg, $accent-orange, $accent-pink);
+
+// Gradiente de texto del badge VI
+$gradient-vi: linear-gradient(
+  to bottom,
+  $accent-violet,
+  $accent-purple,
+  $accent-rose,
+  #FF8A3D
+);
+
+// Gradiente de fondo hero (oscuro con púrpura)
+$gradient-hero-bg: linear-gradient(
+  180deg,
+  $bg-primary    0%,
+  $bg-deep-purple 30%,
+  $bg-mid-purple  60%,
+  $bg-primary    100%
+);
+
+// Gradiente del océano
+$gradient-ocean: linear-gradient(180deg, $accent-violet 0%, $accent-rose 100%);
+
+// Gradiente de barra de progreso / divisores
+$gradient-progress: linear-gradient(90deg, $accent-orange, $accent-pink);
+
+
+// =====================
+// BORDES Y RADIOS
+// =====================
+
+$radius-sm:   6px;
+$radius-md:   8px;
+$radius-lg:   10px;
+$radius-pill: 20px;
+$radius-full: 50%;
+
+
+// =====================
+// SOMBRAS / GLOW
+// =====================
+
+$glow-orange:  drop-shadow(0 0 30px rgba(255, 80, 0, 0.50));
+$glow-orange-sm: drop-shadow(0 0 12px rgba(255, 80, 0, 0.35));
+$shadow-card:  0 2px 16px rgba(0, 0, 0, 0.50);
+
+
+// =====================
+// MIXINS
+// =====================
+
+// Texto con gradiente (clip technique)
+@mixin gradient-text($gradient) {
+  background: $gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// Borde superior de acento (usado en unit-card::before)
+@mixin accent-top-bar($gradient: $gradient-brand) {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: $gradient;
+}
+
+// Card base oscura con borde naranja
+@mixin card-dark {
+  background: $bg-surface;
+  border: 1px solid $border-orange-md;
+  border-radius: $radius-lg;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    @include accent-top-bar;
+  }
+}
+
+// Label de sección (UPPERCASE + letra espaciada)
+@mixin section-label {
+  font-size: $text-xs;
+  letter-spacing: $tracking-title;
+  text-transform: uppercase;
+  color: rgba(255, 106, 0, 0.6);
+  font-family: $font-gta;
+}
+
+// Botón con gradiente de marca
+@mixin btn-brand {
+  padding: 6px 16px;
+  border-radius: $radius-sm;
+  font-size: $text-sm;
+  letter-spacing: $tracking-wide;
+  text-transform: uppercase;
+  background: $gradient-brand;
+  color: $text-primary;
+  cursor: pointer;
+  border: none;
+  font-family: $font-gta;
+}
+
+// Etiqueta tipo tag / pill
+@mixin tag-pill {
+  background: $bg-overlay;
+  border: 1px solid $border-subtle;
+  border-radius: $radius-pill;
+  padding: 5px 14px;
+  font-size: 11px;
+  color: $text-subtle;
+  letter-spacing: $tracking-wider;
+  text-transform: uppercase;
+}
+
+// Info bar (fecha / plataforma)
+@mixin info-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: rgba(255, 80, 0, 0.07);
+  border: 1px solid $border-orange;
+  border-radius: $radius-md;
+}

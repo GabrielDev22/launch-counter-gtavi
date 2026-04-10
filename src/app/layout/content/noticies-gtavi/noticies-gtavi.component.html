@@ -1,0 +1,57 @@
+<div class="news-wrap">
+
+  <!-- Page Header -->
+  <div class="news-header">
+    <span class="news-header__label">&#9679; Cobertura completa</span>
+    <h1 class="news-header__title">NOTICIAS <span>GTA VI</span></h1>
+    <p class="news-header__sub">Todo lo confirmado sobre el lanzamiento más esperado de la historia del gaming.</p>
+  </div>
+
+  <!-- Filters -->
+  <div class="news-filters">
+    @for (filter of filters; track filter) {
+      <button
+        class="filter-btn"
+        [class.filter-btn--active]="activeFilter === filter"
+        (click)="setFilter(filter)">
+        {{ filter }}
+      </button>
+    }
+  </div>
+
+  <!-- Featured Article -->
+  <a class="news-featured" [href]="featuredItem.link" target="_blank" rel="noopener noreferrer">
+    <div class="featured-meta">
+      <span class="featured-tag">{{ featuredItem.tag }}</span>
+      <span class="featured-date">{{ featuredItem.date }}</span>
+    </div>
+    <h2 class="featured-title">{{ featuredItem.title }}</h2>
+    <p class="featured-excerpt">{{ featuredItem.excerpt }}</p>
+    <span class="featured-cta">Ver trailer oficial &rarr;</span>
+  </a>
+
+  <!-- News Grid -->
+  <div class="news-section-label">{{ activeFilter === 'Todo' ? 'Todas las noticias' : activeFilter }}</div>
+
+  <div class="news-grid">
+    @for (item of gridItems; track item.id) {
+      <article class="news-card">
+        <div class="card-meta">
+          <span class="card-tag">{{ item.tag }}</span>
+          <span class="card-date">{{ item.date }}</span>
+        </div>
+        <h3 class="card-title">{{ item.title }}</h3>
+        <p class="card-excerpt">{{ item.excerpt }}</p>
+        <span class="card-cta">Leer más &rarr;</span>
+      </article>
+    }
+
+    @if (gridItems.length === 0) {
+      <div class="news-empty">
+        <span class="news-empty__icon">&#9632;</span>
+        <p>No hay noticias en esta categoría todavía.</p>
+      </div>
+    }
+  </div>
+
+</div>

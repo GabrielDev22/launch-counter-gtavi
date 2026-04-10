@@ -1,0 +1,90 @@
+.navbar {
+  background: rgba(10,10,10,0.97);
+  border-bottom: 1px solid rgba(255,80,0,0.2);
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between;
+  padding: 0 24px;
+  height: 56px;
+}
+
+.nav-logo {
+    display: flex; 
+    align-items: center; 
+    gap: 10px;
+    text-decoration: none;
+}
+
+.logo-badge {
+    width: 32px;
+    height: 32px; 
+    border-radius: 6px;
+    background: linear-gradient(135deg, #ff6a00, #ff0070);
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    font-weight: 700; 
+    font-size: 13px;
+    color: #fff; 
+    letter-spacing: 0px;
+}
+
+.logo-text { 
+    font-size: 15px; 
+    font-weight: 500;
+    color: #fff; 
+    letter-spacing: 1px; 
+}
+
+.logo-text span { 
+    color: #ff6a00; 
+}
+
+.nav-links { 
+    display: flex; 
+    align-items: center; 
+    gap: 4px; 
+}
+
+.nav-link {
+    padding: 6px 14px; 
+    border-radius: 6px; 
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase; 
+    color: rgba(255,255,255,0.55);
+    cursor: pointer;
+    transition: all 0.15s;
+    border: none; 
+    background: none;
+    text-decoration: none;
+}
+
+.nav-link:hover { 
+    color: #fff; 
+    background: rgba(255,255,255,0.06); 
+}
+
+.nav-link.active { 
+    color: #ff6a00; 
+    background: rgba(255,106,0,0.1); 
+}
+
+.nav-cta {
+  padding: 6px 16px; border-radius: 6px; font-size: 12px;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  background: linear-gradient(135deg, #ff6a00, #ff0070);
+  color: #fff; cursor: pointer; border: none; font-family: 'Oswald', sans-serif;
+}
+
+.nav-sep { 
+    width: 1px; 
+    height: 20px;
+    background: rgba(255,255,255,0.1);
+    margin: 0 4px; 
+}
+
+.section-label {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: rgba(255,106,0,0.6); padding: 20px 20px 8px; font-family: 'Oswald', sans-serif;
+}
