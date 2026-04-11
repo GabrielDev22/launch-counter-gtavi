@@ -35,6 +35,11 @@
               "src/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
+            "stylePreprocessorOptions":{
+              "includePaths": [
+                "src/sass"
+              ]
+            },
             "scripts": [],
             "server": "src/main.server.ts",
             "prerender": true,

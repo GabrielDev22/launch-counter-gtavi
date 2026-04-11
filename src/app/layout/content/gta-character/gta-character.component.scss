@@ -1,0 +1,273 @@
+@use 'base_gta' as *;
+
+// =====================
+// WRAPPER
+// =====================
+
+.char-wrap {
+  width: 100%;
+  min-height: 100vh;
+  background: $bg-primary;
+  font-family: $font-gta;
+  padding-bottom: 48px;
+}
+
+// =====================
+// PAGE HEADER
+// =====================
+
+.char-header {
+  padding: 32px 24px 24px;
+  text-align: center;
+  border-bottom: 1px solid $border-orange;
+
+  &__label {
+    @include section-label;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  &__title {
+    font-size: $text-xl;
+    font-weight: 700;
+    letter-spacing: $tracking-hero;
+    color: $text-primary;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+
+    span {
+      @include gradient-text($gradient-brand);
+    }
+  }
+
+  &__sub {
+    font-size: $text-base;
+    color: $text-muted;
+    letter-spacing: $tracking-wide;
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+}
+
+// =====================
+// CHARACTER SWITCHER
+// =====================
+
+.char-switcher {
+  display: flex;
+  gap: 12px;
+  padding: 24px;
+}
+
+.switcher-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 16px 12px;
+  border-radius: $radius-lg;
+  background: $bg-surface;
+  border: 1px solid $border-subtle;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: $font-gta;
+
+  &__role {
+    font-size: $text-xs;
+    letter-spacing: $tracking-title;
+    text-transform: uppercase;
+    color: $text-ghost;
+  }
+
+  &__name {
+    font-size: $text-lg;
+    font-weight: 700;
+    letter-spacing: $tracking-wide;
+    text-transform: uppercase;
+    color: $text-muted;
+    transition: color 0.2s ease;
+  }
+
+  &:hover {
+    border-color: $border-orange-md;
+
+    .switcher-btn__name {
+      color: $text-primary;
+    }
+  }
+
+  // Lucia activo — acento rosa/pink
+  &--lucia#{&}--active {
+    border-color: $accent-pink;
+    background: rgba(255, 0, 112, 0.08);
+
+    .switcher-btn__role {
+      color: rgba(255, 0, 112, 0.6);
+    }
+
+    .switcher-btn__name {
+      @include gradient-text(linear-gradient(135deg, $accent-pink, $accent-rose));
+    }
+  }
+
+  // Jason activo — acento naranja
+  &--jason#{&}--active {
+    border-color: $accent-orange;
+    background: $accent-orange-dim;
+
+    .switcher-btn__role {
+      color: rgba(255, 106, 0, 0.6);
+    }
+
+    .switcher-btn__name {
+      @include gradient-text(linear-gradient(135deg, $accent-orange, $accent-orange-hot));
+    }
+  }
+}
+
+// =====================
+// CHARACTER DETAIL
+// =====================
+
+.char-detail {
+  padding: 0 24px;
+}
+
+// =====================
+// MAIN CARD
+// =====================
+
+.char-card {
+  @include card-dark;
+  padding: 28px 24px;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+
+  // Top accent bar overrides por tema
+  &--lucia::before {
+    @include accent-top-bar(linear-gradient(90deg, $accent-pink, $accent-rose));
+  }
+
+  &--jason::before {
+    @include accent-top-bar(linear-gradient(90deg, $accent-orange, $accent-orange-hot));
+  }
+
+  &__deco {
+    position: absolute;
+    top: -12px;
+    right: 16px;
+    font-size: 140px;
+    font-weight: 700;
+    letter-spacing: -4px;
+    color: rgba(255, 255, 255, 0.03);
+    font-family: $font-gta;
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__role {
+    @include section-label;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  &__name {
+    font-size: $text-2xl;
+    font-weight: 700;
+    letter-spacing: $tracking-hero;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    line-height: 1;
+
+    &--lucia {
+      @include gradient-text(linear-gradient(135deg, $accent-pink, $accent-rose));
+    }
+
+    &--jason {
+      @include gradient-text(linear-gradient(135deg, $accent-orange, $accent-orange-hot));
+    }
+  }
+
+  &__subtitle {
+    font-size: $text-base;
+    color: $text-muted;
+    letter-spacing: $tracking-wide;
+    margin-bottom: 18px;
+    line-height: 1.5;
+  }
+
+  &__desc {
+    font-size: $text-sm;
+    color: $text-subtle;
+    line-height: 1.75;
+    margin-bottom: 22px;
+    max-width: 560px;
+  }
+
+  &__confirmed {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: $text-xs;
+    letter-spacing: $tracking-wider;
+    text-transform: uppercase;
+    color: $text-ghost;
+  }
+}
+
+.confirmed-dot {
+  font-size: 6px;
+  color: $accent-orange;
+}
+
+// =====================
+// TRAITS GRID
+// =====================
+
+.traits-section-label {
+  @include section-label;
+  margin-bottom: 12px;
+}
+
+.traits-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+
+  @media (min-width: 480px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.trait-card {
+  @include card-dark;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.trait-label {
+  font-size: $text-xs;
+  letter-spacing: $tracking-title;
+  text-transform: uppercase;
+  color: $text-ghost;
+}
+
+.trait-value {
+  font-size: $text-sm;
+  font-weight: 700;
+  color: $text-primary;
+  letter-spacing: $tracking-wide;
+  text-transform: uppercase;
+  line-height: 1.3;
+}

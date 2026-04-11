@@ -1,27 +1,41 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsItem } from '../model/noticies-gta';
 import { LocalStorageFrontService } from '../service/localStorageFront.service';
+import { Meta, Title } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-noticies-gtavi',
   templateUrl: './noticies-gtavi.component.html',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   styleUrls: ['./noticies-gtavi.component.scss']
 })
 export class NoticiesGtaviComponent implements OnInit {
 
-  activeFilter = 'Todo';
+  activeFilter : string = 'Todo';
 
-  filters = ['Todo', 'Trailers', 'Personajes', 'Lanzamiento', 'Mundo', 'Plataformas'];
+  filters : string[] = ['Todo', 'Trailers', 'Personajes', 'Lanzamiento', 'Mundo', 'Plataformas'];
 
   newsItems: NewsItem[] = [];
 
   constructor(
+    private titleService : Title,
+    private metaService : Meta,
     private _localStorageFront : LocalStorageFrontService
   ){}
 
   ngOnInit(){
+    this.titleService.setTitle("Últimas Noticias de GTA VI - Countdown");
+    this.metaService.updateTag({
+      name: 'description',
+      content: 'Descubre todas las novedades, trailers y filtraciones de GTA VI. Actualizado diariamente.'
+    });
+    this.metaService.updateTag({ name: 'keywords', content: 'noticias GTA VI, GTA 6 noticias, trailers GTA VI, Lucia GTA VI, Rockstar Games novedades, fecha lanzamiento GTA 6' });
+    this.metaService.updateTag({ property: 'og:title', content: 'Noticias Explosivas de GTA VI' });
+    this.metaService.updateTag({ property: 'og:description', content: 'Descubre todas las novedades, trailers y filtraciones de GTA VI. Actualizado diariamente.' });
+    this.metaService.updateTag({ name: 'twitter:title', content: 'Últimas Noticias de GTA VI' });
+    this.metaService.updateTag({ name: 'twitter:description', content: 'Trailers, filtraciones y todo lo confirmado sobre GTA VI. Actualizado diariamente.' });
     this.newsItems = this._localStorageFront.getNews();
   }
 
