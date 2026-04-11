@@ -1,4 +1,5 @@
 @use 'base_gta' as *;
+@use 'mixins' as *;
 
 .container-map{
   width: 100%;
@@ -6,4 +7,149 @@
   background: $bg-primary;
   font-family: $font-gta;
   padding-bottom: 48px;
+}
+
+.news-header {
+  padding: 32px 24px 24px;
+  text-align: center;
+  border-bottom: 1px solid $border-orange;
+
+  &__label {
+    @include section-label;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  &__title {
+    font-size: $text-xl;
+    font-weight: 700;
+    letter-spacing: $tracking-hero;
+    color: $text-primary;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+
+    span {
+      @include gradient-text($gradient-brand);
+    }
+  }
+
+  &__sub {
+    font-size: $text-base;
+    color: $text-muted;
+    letter-spacing: $tracking-wide;
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+}
+
+.news-filters {
+  display: flex;
+  gap: 8px;
+  padding: 20px 24px;
+  overflow-x: auto;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar { display: none; }
+}
+
+.filter-btn {
+  flex-shrink: 0;
+  padding: 6px 16px;
+  border-radius: $radius-pill;
+  font-size: $text-xs;
+  letter-spacing: $tracking-wider;
+  text-transform: uppercase;
+  font-family: $font-gta;
+  background: $bg-overlay;
+  border: 1px solid $border-subtle;
+  color: $text-muted;
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  &:hover {
+    color: $text-primary;
+    border-color: $border-orange;
+  }
+
+  &--active {
+    background: $gradient-brand;
+    border-color: transparent;
+    color: $text-primary;
+  }
+}
+
+.card{
+  background-color: $bg-primary;
+  
+  .img-world-map{
+    object-fit: cover;
+    border-radius: 8px;
+    filter: contrast(100%) brightness(95%) saturate(120%);
+    image-rendering: crisp-edges;
+    transform: translateZ(0);
+  }
+
+  .card-title {
+    font-size: $text-xl;
+    font-weight: 700;
+    line-height: 1.35;
+    margin-bottom: 10px;
+    @include gradient-text($gradient-brand);
+  }
+
+  .card-tag-zone{
+    font-size: $text-md;
+    font-weight: 600;
+    line-height: 1.5;
+    font-family: $font-secondary;
+    color: $text-ghost;
+  }
+
+  .card-tag{
+    max-width: 150px;
+    display: flex;
+    justify-content: center;
+    background: $gradient-brand;
+    border-color: transparent;
+    color: $text-primary;
+    padding: 4px;
+    border-radius: $radius-sm;
+
+    span{
+      font-size: $text-base;
+      font-family: $font-primary;
+    }
+  }
+
+  .card-description{
+    color: $text-ghost;
+    font-family: $font-primary;
+    font-size: $text-base;
+  }
+
+  .container-specification-maps{
+    display: flex;
+    flex-direction:column;
+    width: 350px;
+    background-color: $bg-overlay;
+    padding: 4px;
+    box-shadow: $shadow-card;
+    border-radius: $radius-sm;
+
+    .table-specification{
+      padding: 4px;
+      border-bottom: 3px solid $border-dim;
+    }
+
+    .table-specification:nth-child(odd) span {
+      color: $text-ghost;
+    }
+
+    .table-specification:nth-child(even) span {
+      color: #A2A2A2;
+    }
+
+  }
+
 }

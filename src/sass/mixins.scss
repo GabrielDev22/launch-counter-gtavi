@@ -1,0 +1,98 @@
+// ============================================================
+// mixins.scss — Mixins reutilizables del Design System
+// Importar en componentes que necesiten aplicar estilos compuestos.
+// Los tokens (colores, tipografía) vienen de base_gta.
+// ============================================================
+
+@use 'base_gta' as *;
+
+
+// =====================
+// TIPOGRAFÍA
+// =====================
+
+// Texto con clip de gradiente
+@mixin gradient-text($gradient) {
+  background: $gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// Label de sección — UPPERCASE + letra espaciada
+@mixin section-label {
+  font-size: $text-xs;
+  letter-spacing: $tracking-title;
+  text-transform: uppercase;
+  color: rgba(255, 106, 0, 0.6);
+  font-family: $font-gta;
+}
+
+
+// =====================
+// LAYOUT / COMPONENTES
+// =====================
+
+// Borde superior de acento (usado con ::before)
+@mixin accent-top-bar($gradient: $gradient-brand) {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: $gradient;
+}
+
+// Card base oscura con borde naranja
+@mixin card-dark {
+  background: $bg-surface;
+  border: 1px solid $border-orange-md;
+  border-radius: $radius-lg;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    @include accent-top-bar;
+  }
+}
+
+// Info bar — fecha / plataforma
+@mixin info-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: rgba(255, 80, 0, 0.07);
+  border: 1px solid $border-orange;
+  border-radius: $radius-md;
+}
+
+
+// =====================
+// BOTONES / PILLS
+// =====================
+
+// Botón con gradiente de marca
+@mixin btn-brand {
+  padding: 6px 16px;
+  border-radius: $radius-sm;
+  font-size: $text-sm;
+  letter-spacing: $tracking-wide;
+  text-transform: uppercase;
+  background: $gradient-brand;
+  color: $text-primary;
+  cursor: pointer;
+  border: none;
+  font-family: $font-gta;
+}
+
+// Etiqueta tipo tag / pill
+@mixin tag-pill {
+  background: $bg-overlay;
+  border: 1px solid $border-subtle;
+  border-radius: $radius-pill;
+  padding: 5px 14px;
+  font-size: 11px;
+  color: $text-subtle;
+  letter-spacing: $tracking-wider;
+  text-transform: uppercase;
+}

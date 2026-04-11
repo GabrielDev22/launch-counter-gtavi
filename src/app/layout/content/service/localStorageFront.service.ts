@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { NewsItem } from '../model/noticies-gta';
 import { Character } from '../model/character';
+import { MapInstructionSections, ZoneUbication } from '../model/maps';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LocalStorageFrontService {
-
-  private newsItems: NewsItem[] = [];
 
   constructor() { }
 
@@ -51,7 +50,7 @@ export class LocalStorageFrontService {
   }
 
   getNews(): NewsItem[]{
-    return this.newsItems = [
+    return [
       {
         id: 1,
         category: 'Trailers',
@@ -108,6 +107,101 @@ export class LocalStorageFrontService {
         featured: false
       }
     ];
+  }
+
+  getMaps(): MapInstructionSections[]{
+    return [
+      {
+        id: 1,
+        img : 'assets/gta-world/vice-city-gta-6.jpg',
+        title: "Vice City",
+        tagZone: "Zona 01 / 06",
+        tagText: "Ciudad principal",
+        filter: ZoneUbication.VICE_CITY,
+        description: "La versión GTA del Miami moderno. Glamour, crimen y exceso conviven en esta metrópolis densa con barrios diferenciados: desde Vice Beach hasta Little Cuba. El mapa más detallado de la saga.",
+        mapDataZone: {
+          type: "Metrópolis urbana",
+          inspiration: "Miami, Florida",
+          confirmed: "Tráiler 1 & 2",
+          density: "Muy alta"
+        }
+      },
+      {
+        id: 2,
+        img : 'assets/gta-world/leonida-keys-gta-6.jpg',
+        title: "Leonida Keys",
+        tagZone: "Zona 02 / 06",
+        tagText: "Archipiélago tropical",
+        filter: ZoneUbication.LEONIDAS_KEYS,
+        description: "Al sur de Vice City, un archipiélago tropical con aguas cristalinas infestadas de peligros. Jet skis, buceo, tortugas y tiburones. Aquí comienza la historia de Jason.",
+        mapDataZone: {
+          type: "Islas / Costa",
+          inspiration: "Florida Keys",
+          confirmed: "Náuticas, buceo",
+          density: "Tiburones, tortugas"
+        }
+      },
+      {
+        id: 3,
+        img : 'assets/gta-world/grassrivers-grand-theft-auto-6.jpg',
+        title: "Grassrivers",
+        tagZone: "Zona 03 / 06",
+        tagText: "Pantanos y marismas",
+        filter: ZoneUbication.GRASSIREVERS,
+        description: "Pantanos inhóspitos llenos de caimanes y personajes peligrosos. Los terrenos fangosos dificultan la navegación. Vistos en ambos trailers como zona de contrastes y peligro constante.",
+        mapDataZone: {
+          type: "Swamp / marisma",
+          inspiration: "Everglades",
+          confirmed: "Caimanes, locales",
+          density: "Muy difícil"
+        }
+      },
+      {
+        id: 4,
+        img : 'assets/gta-world/port-gellhorn-gta-6.jpg',
+        title: "Port Gellhorn",
+        tagZone: "Zona 04 / 06",
+        tagText: "Costa olvidada",
+        filter: ZoneUbication.PORT_GELLHORN,
+        description: "Antigua zona turística caída en decadencia. Crimen, pobreza y desesperación. Moteles de mala muerte y calles peligrosas. Ideal para exploración en dirt bike por su terreno accidentado.",
+        mapDataZone: {
+          type: "Zona degradada",
+          inspiration: "Oscura, peligrosa",
+          confirmed: "Off-road, sigilo",
+          density: "Pandillas locales"
+        }
+      },
+      {
+        id: 5,
+        img : 'assets/gta-world/ambrosia-grand-theft-auto-6.jpg',
+        title: "Ambrosia",
+        tagZone: "Zona 05 / 06",
+        tagText: "Ciudad industrial",
+        filter: ZoneUbication.RAG_WEED,
+        description: "Ciudad industrial dominada por pandillas de motociclistas. Fábricas, algunas como fachada de negocios ilegales. El centro: la refinería Allied Crystal Sugar. Zona de tiroteos épicos.",
+        mapDataZone: {
+          type: "Industrial / urbano",
+          inspiration: "Biker gangs",
+          confirmed: "Allied Crystal Sugar",
+          density: "Calor seco, incendios"
+        }
+      },
+      {
+        id: 6,
+        img : 'assets/gta-world/mount-kalaga-gta-6.jpg',
+        title: "Mount Kalaga",
+        tagZone: "Zona 06 / 06",
+        tagText: "Parque natural",
+        filter: ZoneUbication.MOUNT_KALAGA,
+        description: "Parque nacional repleto de vida salvaje. Caza, pesca y senderismo sin el peligro de ser devorado. Espíritu similar a Red Dead Redemption 2. Cuidado con los personajes extraños del bosque.",
+        mapDataZone: {
+          type: "Zona natural",
+          inspiration: "Caza, pesca, trails",
+          confirmed: "Pumas, ciervos",
+          density: "RDR2-like"
+        }
+      },
+    ]
   }
 
 }
