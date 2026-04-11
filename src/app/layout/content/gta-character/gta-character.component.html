@@ -1,0 +1,60 @@
+<div class="char-wrap">
+
+  <!-- Page Header -->
+  <div class="char-header">
+    <span class="char-header__label">&#9679; Protagonistas Confirmados</span>
+    <h1 class="char-header__title">PERSONAJES <span>GTA VI</span></h1>
+    <p class="char-header__sub">Los dos protagonistas jugables del mayor lanzamiento en la historia del gaming.</p>
+  </div>
+
+  <!-- Character Switcher -->
+  <div class="char-switcher">
+    @for (char of characters; track char.id) {
+      <button
+        class="switcher-btn"
+        [class.switcher-btn--active]="selected.id === char.id"
+        [class.switcher-btn--lucia]="char.theme === 'lucia'"
+        [class.switcher-btn--jason]="char.theme === 'jason'"
+        (click)="select(char)">
+        <span class="switcher-btn__role">{{ char.role }}</span>
+        <span class="switcher-btn__name">{{ char.name }}</span>
+      </button>
+    }
+  </div>
+
+  <!-- Character Detail -->
+  @if (selected) {
+    <div class="char-detail">
+
+      <!-- Main Card -->
+      <div class="char-card" [class.char-card--lucia]="selected.theme === 'lucia'" [class.char-card--jason]="selected.theme === 'jason'">
+        <div class="char-card__deco">{{ selected.name.charAt(0) }}</div>
+        <div class="char-card__content">
+          <span class="char-card__role">{{ selected.role }}</span>
+          <h2 class="char-card__name" [class.char-card__name--lucia]="selected.theme === 'lucia'" [class.char-card__name--jason]="selected.theme === 'jason'">
+            {{ selected.name }}
+          </h2>
+          <p class="char-card__subtitle">{{ selected.subtitle }}</p>
+          <p class="char-card__desc">{{ selected.description }}</p>
+          <div class="char-card__confirmed">
+            <span class="confirmed-dot">&#9679;</span>
+            {{ selected.confirmedIn }}
+          </div>
+        </div>
+      </div>
+
+      <!-- Traits Grid -->
+      <div class="traits-section-label">Perfil del personaje</div>
+      <div class="traits-grid">
+        @for (trait of selected.traits; track trait.label) {
+          <div class="trait-card">
+            <span class="trait-label">{{ trait.label }}</span>
+            <span class="trait-value">{{ trait.value }}</span>
+          </div>
+        }
+      </div>
+
+    </div>
+  }
+
+</div>

@@ -11,3 +11,4 @@ Tu objetivo es asegurar que la aplicación sea visualmente atractiva, intuitiva,
 2. **Pensamiento Mobile-First:** Recuerda que la mayoría de los usuarios entran desde el móvil. Asegúrate de que los componentes sean responsivos y cómodos de tocar con el dedo.
 3. **Carga Cognitiva:** Mantén las interfaces limpias. Si una pantalla tiene demasiada información, sugiere dividirla o usar revelación progresiva.
 4. **Feedback Visual:** Sugiere estados activos, hover, focus y pantallas de carga (loaders) para que el usuario siempre sepa qué está pasando.
+5. **Construccion Visual:** Utiliza Boostrap para el maquetado general, luego las cosas mas customizadas si utiliza clases directas pero para armas la arquitectura utiliza las clases de boostrap

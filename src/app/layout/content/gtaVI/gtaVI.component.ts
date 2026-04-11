@@ -1,5 +1,6 @@
 import { isPlatformBrowser } from '@angular/common';
 import { Component, inject, OnDestroy, OnInit, PLATFORM_ID, Renderer2 } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 
 @Component({
@@ -26,7 +27,9 @@ export class GtaVIComponent implements OnInit, OnDestroy {
   platformId = inject(PLATFORM_ID);
 
   constructor(
-    private render : Renderer2
+    private render : Renderer2,
+    private titleService : Title,
+    private metaService : Meta,
   ) {
   }
 
@@ -35,6 +38,16 @@ export class GtaVIComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.titleService.setTitle("GTA VI Countdown | Cuenta Regresiva Oficial y Fecha de Lanzamiento");
+    this.metaService.updateTag({
+      name: 'description',
+      content: '¿Cuánto falta para GTA 6? Sigue nuestra cuenta regresiva en tiempo real. Entérate de la fecha de lanzamiento, trailers y noticias confirmadas de Rockstar Games.'
+    });
+    this.metaService.updateTag({ name: 'keywords', content: 'GTA VI, GTA 6, Countdown, Rockstar Games, Fecha de lanzamiento GTA VI, contador' });
+    this.metaService.updateTag({ property: 'og:title', content: 'GTA VI Countdown | Cuenta Regresiva Oficial y Fecha de Lanzamiento' });
+    this.metaService.updateTag({ property: 'og:description', content: '¿Cuánto falta para GTA 6? Sigue nuestra cuenta regresiva en tiempo real. Entérate de la fecha de lanzamiento, trailers y noticias confirmadas de Rockstar Games.' });
+    this.metaService.updateTag({ name: 'twitter:title', content: 'GTA VI Countdown | Cuenta Regresiva Oficial' });
+    this.metaService.updateTag({ name: 'twitter:description', content: '¿Cuánto falta para GTA 6? Cuenta regresiva en tiempo real con noticias y fecha de lanzamiento oficial.' });
     this.totalMs = this.launch.getTime() - this.trailerDate.getTime();
     if(isPlatformBrowser(this.platformId)){
       this.intervalId = setInterval(() => this.update(), 1000);

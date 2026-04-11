@@ -1,0 +1,9 @@
+@use 'base_gta' as *;
+
+.container-map{
+  width: 100%;
+  min-height: 100vh;
+  background: $bg-primary;
+  font-family: $font-gta;
+  padding-bottom: 48px;
+}
