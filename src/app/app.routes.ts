@@ -14,13 +14,13 @@ export const routes: Routes = [
                 path: '', component: GtaVIComponent
             },
             {
-                path: 'noticies', component: NoticiesGtaviComponent
+                path: 'noticies', loadComponent: () => import('./layout/content/noticies-gtavi/noticies-gtavi.component').then(m => m.NoticiesGtaviComponent)
             },
             {
-                path: 'map', component: GtaWorldMapComponent
+                path: 'map', loadComponent: () => import('./layout/content/gta-world-map/gta-world-map.component').then(m => m.GtaWorldMapComponent)
             },
             {
-                path: 'characters', component: GtaCharacterComponent,
+                path: 'characters', loadComponent: () => import('./layout/content/gta-character/gta-character.component').then(m => m.GtaCharacterComponent) 
             }
         ]
     },
