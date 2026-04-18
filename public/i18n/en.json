@@ -1,0 +1,185 @@
+{
+  "GTA_HEADER": {
+    "HOME": "Home",
+    "NOTICIES": "News",
+    "MAP": "Map",
+    "CHARACTER": "Characters",
+    "FAQ": "FAQ",
+    "IDIOM": "Language"
+  },
+  "HOME": {
+    "HERO_TITLE": "Launch countdown",
+    "DATE": "November 19, 2026",
+    "DAYS": "Days",
+    "HOURS": "Hours",
+    "MINS": "Minutes",
+    "SECS": "Seconds",
+    "PROGRESS_START": "Trailer 1 announcement",
+    "PROGRESS_END": "Launch",
+    "PROGRESS_PCT": "{{value}}% — complete"
+  },
+  "NEWS": {
+    "LABEL": "Full coverage",
+    "TITLE": "NEWS",
+    "SUBTITLE": "Everything confirmed about the most anticipated launch in gaming history.",
+    "FEATURED_CTA": "Watch official trailer →",
+    "CARD_CTA": "Read more →",
+    "EMPTY": "No news in this category yet.",
+    "SECTION_ALL": "All news",
+    "FILTERS": {
+      "ALL": "All",
+      "TRAILERS": "Trailers",
+      "CHARACTERS": "Characters",
+      "LAUNCH": "Launch",
+      "WORLD": "World",
+      "PLATFORMS": "Platforms"
+    },
+    "ITEMS": {
+      "1": {
+        "date": "Dec 4, 2023",
+        "title": "Trailer #1: Rockstar breaks records with 93 million views in 24 hours",
+        "excerpt": "The first official GTA VI trailer became the most-watched video game trailer in YouTube history. In less than a day it surpassed any film or music trailer. Lucia, the first female protagonist of the main series, leads a crime story alongside Jason in the state of Leonida.",
+        "tag": "OFFICIAL TRAILER"
+      },
+      "2": {
+        "date": "Dec 4, 2023",
+        "title": "Lucia and Jason: two playable protagonists for the first time in the series",
+        "excerpt": "GTA VI introduces Lucia as the first female protagonist in the main Grand Theft Auto story. Together with Jason, they form a couple crossing Leonida in search of freedom. The story promises a deeper and more personal narrative than any previous entry.",
+        "tag": "CHARACTERS"
+      },
+      "3": {
+        "date": "Jan 2025",
+        "title": "Confirmed: GTA VI launches in 2026 exclusively on PS5 and Xbox Series X",
+        "excerpt": "Rockstar Games confirmed that Grand Theft Auto VI will arrive in 2026 exclusively for PlayStation 5 and Xbox Series X. The PC version has no release date yet, repeating the GTA V pattern. The studio prioritized quality and optimization over a simultaneous PC launch.",
+        "tag": "OFFICIAL DATE"
+      },
+      "4": {
+        "date": "Dec 2023",
+        "title": "Leonida and Vice City: the biggest, most alive map in Rockstar history",
+        "excerpt": "The state of Leonida, inspired by Florida, is the setting for GTA VI. Vice City returns as the main city with unprecedented density and detail. Rural environments, coastlines and suburban areas complement a more varied geography than any previous GTA.",
+        "tag": "OPEN WORLD"
+      },
+      "5": {
+        "date": "Dec 2023",
+        "title": "No PC at launch: consoles first, just like GTA V in 2013",
+        "excerpt": "Just as with GTA V, the PC version of GTA VI will not be available on launch day. PS5 and Xbox Series X will be the only launch platforms. Rockstar has not given an estimated date for the PC port.",
+        "tag": "PLATFORMS"
+      },
+      "6": {
+        "date": "Dec 2023",
+        "title": "Trailer #1 breakdown: every detail the community found",
+        "excerpt": "The GTA community analyzed the first official trailer frame by frame. From references to real Florida crimes to details about the game's dynamic economy system. Here is everything discovered in the first 48 hours.",
+        "tag": "ANALYSIS"
+      }
+    }
+  },
+  "CHARACTERS": {
+    "LABEL": "Confirmed Protagonists",
+    "TITLE": "CHARACTERS",
+    "SUBTITLE": "The two playable protagonists of the biggest launch in gaming history.",
+    "PROFILE_LABEL": "Character profile",
+    "ITEMS": {
+      "1": {
+        "role": "Main Protagonist",
+        "subtitle": "First female protagonist in Grand Theft Auto history",
+        "description": "Lucia is the face of change in GTA VI. With Latin roots and a past marked by crime, she begins her story in Leonida fresh out of prison. Determined and calculating, she navigates the criminal underworld alongside Jason in search of a way out — and the American dream on her own terms. Her narrative breaks every mold that defined the series for two decades.",
+        "confirmedIn": "Official Trailer #1 — December 4, 2023",
+        "TRAITS": {
+          "0": { "label": "Role",     "value": "Playable co-protagonist" },
+          "1": { "label": "Origin",   "value": "Leonida, Florida" },
+          "2": { "label": "Status",   "value": "Ex-convict" },
+          "3": { "label": "Partner",  "value": "Jason" },
+          "4": { "label": "Heritage", "value": "Latina" },
+          "5": { "label": "Debut",    "value": "Trailer #1 · Dec 2023" }
+        }
+      },
+      "2": {
+        "role": "Co-protagonist",
+        "subtitle": "The criminal anchor at the heart of the state of Leonida",
+        "description": "Jason is a man forged by the streets of Leonida. He knows every corner of the criminal underworld of the Florida-inspired state and is the perfect complement to Lucia — impulsive where she is strategic, territorial where she is adaptable. Together they form the most dangerous duo in GTA history, with a dynamic that evokes Bonnie & Clyde in the 21st century.",
+        "confirmedIn": "Official Trailer #1 — December 4, 2023",
+        "TRAITS": {
+          "0": { "label": "Role",   "value": "Playable co-protagonist" },
+          "1": { "label": "Origin", "value": "Leonida, Florida" },
+          "2": { "label": "Status", "value": "Local criminal" },
+          "3": { "label": "Partner","value": "Lucia" },
+          "4": { "label": "Style",  "value": "Impulsive and territorial" },
+          "5": { "label": "Debut",  "value": "Trailer #1 · Dec 2023" }
+        }
+      }
+    }
+  },
+  "MAP": {
+    "LABEL": "Latest updates: Leonida Map",
+    "TITLE": "MAP",
+    "SUBTITLE": "Discover confirmed locations, map size and the community's most detailed theories about the return to Vice City.",
+    "TYPE_LABEL": "TYPE",
+    "INSPIRATION_LABEL": "INSPIRATION",
+    "CONFIRMED_LABEL": "CONFIRMED",
+    "DENSITY_LABEL": "NPC DENSITY",
+    "FILTERS": {
+      "V": "Vice City",
+      "L": "Leonida Keys",
+      "G": "Grassrivers",
+      "P": "Port Gellhorn",
+      "R": "Ambrosia",
+      "M": "Mount Kalaga"
+    },
+    "ITEMS": {
+      "1": {
+        "tagZone": "Zone 01 / 06",
+        "tagText": "Main city",
+        "description": "GTA's take on modern Miami. Glamour, crime and excess coexist in this dense metropolis with distinct neighborhoods: from Vice Beach to Little Cuba. The most detailed map in the series.",
+        "type": "Urban metropolis",
+        "inspiration": "Miami, Florida",
+        "confirmed": "Trailer 1 & 2",
+        "density": "Very high"
+      },
+      "2": {
+        "tagZone": "Zone 02 / 06",
+        "tagText": "Tropical archipelago",
+        "description": "South of Vice City, a tropical archipelago with crystal-clear waters infested with dangers. Jet skis, diving, turtles and sharks. This is where Jason's story begins.",
+        "type": "Islands / Coast",
+        "inspiration": "Florida Keys",
+        "confirmed": "Nautical, diving",
+        "density": "Sharks, turtles"
+      },
+      "3": {
+        "tagZone": "Zone 03 / 06",
+        "tagText": "Swamps and marshes",
+        "description": "Inhospitable swamps full of alligators and dangerous characters. Muddy terrain makes navigation difficult. Seen in both trailers as a zone of contrasts and constant danger.",
+        "type": "Swamp / marshland",
+        "inspiration": "Everglades",
+        "confirmed": "Alligators, locals",
+        "density": "Very difficult"
+      },
+      "4": {
+        "tagZone": "Zone 04 / 06",
+        "tagText": "Forgotten coast",
+        "description": "Former tourist area fallen into decay. Crime, poverty and despair. Seedy motels and dangerous streets. Ideal for dirt bike exploration due to its rugged terrain.",
+        "type": "Degraded zone",
+        "inspiration": "Dark, dangerous",
+        "confirmed": "Off-road, stealth",
+        "density": "Local gangs"
+      },
+      "5": {
+        "tagZone": "Zone 05 / 06",
+        "tagText": "Industrial city",
+        "description": "Industrial city dominated by biker gangs. Factories, some as fronts for illegal businesses. The centerpiece: the Allied Crystal Sugar refinery. Zone of epic shootouts.",
+        "type": "Industrial / urban",
+        "inspiration": "Biker gangs",
+        "confirmed": "Allied Crystal Sugar",
+        "density": "Dry heat, fires"
+      },
+      "6": {
+        "tagZone": "Zone 06 / 06",
+        "tagText": "Natural park",
+        "description": "National park full of wildlife. Hunting, fishing and hiking without the danger of being devoured. Spirit similar to Red Dead Redemption 2. Watch out for strange characters in the woods.",
+        "type": "Natural zone",
+        "inspiration": "Hunting, fishing, trails",
+        "confirmed": "Pumas, deer",
+        "density": "RDR2-like"
+      }
+    }
+  }
+}
