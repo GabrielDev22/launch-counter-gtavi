@@ -2,9 +2,9 @@
 
   <!-- Page Header -->
   <div class="news-header">
-    <span class="news-header__label">&#9679; Cobertura completa</span>
-    <h1 class="news-header__title">NOTICIAS <span>GTA VI</span></h1>
-    <p class="news-header__sub">Todo lo confirmado sobre el lanzamiento más esperado de la historia del gaming.</p>
+    <span class="news-header__label">&#9679; {{ 'NEWS.LABEL' | translate }}</span>
+    <h1 class="news-header__title">{{ 'NEWS.TITLE' | translate }} <span>GTA VI</span></h1>
+    <p class="news-header__sub">{{ 'NEWS.SUBTITLE' | translate }}</p>
   </div>
 
   <!-- Filters -->
@@ -14,7 +14,7 @@
         class="filter-btn"
         [class.filter-btn--active]="activeFilter === filter"
         (click)="setFilter(filter)">
-        {{ filter }}
+        {{ 'NEWS.FILTERS.' + filter | translate }}
       </button>
     }
   </div>
@@ -22,34 +22,34 @@
   <!-- Featured Article -->
   <a class="news-featured" [href]="featuredItem.link" target="_blank" rel="noopener noreferrer">
     <div class="featured-meta">
-      <span class="featured-tag">{{ featuredItem.tag }}</span>
-      <span class="featured-date">{{ featuredItem.date }}</span>
+      <span class="featured-tag">{{ 'NEWS.ITEMS.' + featuredItem.id + '.tag' | translate }}</span>
+      <span class="featured-date">{{ 'NEWS.ITEMS.' + featuredItem.id + '.date' | translate }}</span>
     </div>
-    <h2 class="featured-title">{{ featuredItem.title }}</h2>
-    <p class="featured-excerpt">{{ featuredItem.excerpt }}</p>
-    <span class="featured-cta">Ver trailer oficial &rarr;</span>
+    <h2 class="featured-title">{{ 'NEWS.ITEMS.' + featuredItem.id + '.title' | translate }}</h2>
+    <p class="featured-excerpt">{{ 'NEWS.ITEMS.' + featuredItem.id + '.excerpt' | translate }}</p>
+    <span class="featured-cta">{{ 'NEWS.FEATURED_CTA' | translate }}</span>
   </a>
 
   <!-- News Grid -->
-  <div class="news-section-label">{{ activeFilter === 'Todo' ? 'Todas las noticias' : activeFilter }}</div>
+  <div class="news-section-label">{{ newsSectionKey | translate }}</div>
 
   <div class="news-grid">
     @for (item of gridItems; track item.id) {
       <article class="news-card">
         <div class="card-meta">
-          <span class="card-tag">{{ item.tag }}</span>
-          <span class="card-date">{{ item.date }}</span>
+          <span class="card-tag">{{ 'NEWS.ITEMS.' + item.id + '.tag' | translate }}</span>
+          <span class="card-date">{{ 'NEWS.ITEMS.' + item.id + '.date' | translate }}</span>
         </div>
-        <h3 class="card-title">{{ item.title }}</h3>
-        <p class="card-excerpt">{{ item.excerpt }}</p>
-        <span class="card-cta">Leer más &rarr;</span>
+        <h3 class="card-title">{{ 'NEWS.ITEMS.' + item.id + '.title' | translate }}</h3>
+        <p class="card-excerpt">{{ 'NEWS.ITEMS.' + item.id + '.excerpt' | translate }}</p>
+        <span class="card-cta">{{ 'NEWS.CARD_CTA' | translate }}</span>
       </article>
     }
 
     @if (gridItems.length === 0) {
       <div class="news-empty">
         <span class="news-empty__icon">&#9632;</span>
-        <p>No hay noticias en esta categoría todavía.</p>
+        <p>{{ 'NEWS.EMPTY' | translate }}</p>
       </div>
     }
   </div>

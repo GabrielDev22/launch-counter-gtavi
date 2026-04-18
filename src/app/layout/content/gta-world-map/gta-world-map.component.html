@@ -1,86 +1,59 @@
 <div class="container-map">
   <!-- Page Header -->
   <div class="news-header">
-    <span class="news-header__label">&#9679; Últimas actualizaciones: Mapa Leonida</span>
-    <h1 class="news-header__title">MAPA <span>GTA VI</span></h1>
-    <p class="news-header__sub">Descubre las ubicaciones confirmadas, el tamaño del mapa y las teorías más detalladas de la comunidad sobre el regreso a Vice City.</p>
+    <span class="news-header__label">&#9679; {{ 'MAP.LABEL' | translate }}</span>
+    <h1 class="news-header__title">{{ 'MAP.TITLE' | translate }} <span>GTA VI</span></h1>
+    <p class="news-header__sub">{{ 'MAP.SUBTITLE' | translate }}</p>
   </div>
 
-   <div class="news-filters">
+  <div class="news-filters">
     @for (filter of filters; track filter) {
       <button
         class="filter-btn"
-        [class.filter-btn--active]="activeFilter === filter.value"
-        (click)="setFilter(filter.value)">
-        {{ filter.label }}
+        [class.filter-btn--active]="activeFilter === filter"
+        (click)="setFilter(filter)">
+        {{ 'MAP.FILTERS.' + filter | translate }}
       </button>
     }
   </div>
 
-  <div class="row">
-    @for (map of gridMapInstructionSections; track map.id) {
+  @if (visibleMap) {
+    <div class="row">
       <div class="col-6">
         <div class="card card-body">
-          <img class="img-world-map" [ngSrc]="map.img" width="700" height="400" alt="Vice City">
+          <img class="img-world-map"
+               [ngSrc]="visibleMap.img"
+               width="700" height="400"
+               [alt]="'MAP.FILTERS.' + visibleMap.filter | translate"
+               priority
+               sizes="(max-width: 576px) 100vw, 50vw">
         </div>
       </div>
       <div class="col-6">
         <div class="card card-body">
-          <span class="card-tag-zone">{{map.tagZone}}</span>
-          <h3 class="card-title">{{map.title}}</h3>
+          <span class="card-tag-zone">{{ 'MAP.ITEMS.' + visibleMap.id + '.tagZone' | translate }}</span>
+          <h3 class="card-title">{{ 'MAP.FILTERS.' + visibleMap.filter | translate }}</h3>
           <div class="card-tag mb-3">
-            <span>{{map.tagText}}</span>
+            <span>{{ 'MAP.ITEMS.' + visibleMap.id + '.tagText' | translate }}</span>
           </div>
           <p class="card-description mb-3">
-            {{map.description}}
+            {{ 'MAP.ITEMS.' + visibleMap.id + '.description' | translate }}
           </p>
           <div class="container-specification-maps">
             <div class="row g-0">
-              <div class="col-6 table-specification">
-                <span>
-                  TIPO
-                </span>
-              </div>
-              <div class="col-6 table-specification">
-                <span>
-                  {{map.mapDataZone.type}}
-                </span>
-              </div>
-              <div class="col-6 table-specification">
-                <span>
-                  INSPIRACIÓN
-                </span>
-              </div>
-              <div class="col-6 table-specification">
-                <span>
-                  {{map.mapDataZone.inspiration}}
-                </span>
-              </div>
-              <div class="col-6 table-specification">
-                <span>
-                  CONFIRMADO
-                </span>
-              </div>
-              <div class="col-6 table-specification">
-                <span>
-                  {{map.mapDataZone.confirmed}}
-                </span>
-              </div>
-              <div class="col-6 table-specification">
-                <span>
-                  DENSIDAD NPC
-                </span>
-              </div>
-              <div class="col-6 table-specification">
-                <span>
-                  {{map.mapDataZone.density}}
-                </span>
-              </div>
+              <div class="col-6 table-specification"><span>{{ 'MAP.TYPE_LABEL' | translate }}</span></div>
+              <div class="col-6 table-specification"><span>{{ 'MAP.ITEMS.' + visibleMap.id + '.type' | translate }}</span></div>
+              <div class="col-6 table-specification"><span>{{ 'MAP.INSPIRATION_LABEL' | translate }}</span></div>
+              <div class="col-6 table-specification"><span>{{ 'MAP.ITEMS.' + visibleMap.id + '.inspiration' | translate }}</span></div>
+              <div class="col-6 table-specification"><span>{{ 'MAP.CONFIRMED_LABEL' | translate }}</span></div>
+              <div class="col-6 table-specification"><span>{{ 'MAP.ITEMS.' + visibleMap.id + '.confirmed' | translate }}</span></div>
+              <div class="col-6 table-specification"><span>{{ 'MAP.DENSITY_LABEL' | translate }}</span></div>
+              <div class="col-6 table-specification"><span>{{ 'MAP.ITEMS.' + visibleMap.id + '.density' | translate }}</span></div>
             </div>
           </div>
         </div>
       </div>
-    }
-  </div>
+    </div>
+  }
 
 </div>

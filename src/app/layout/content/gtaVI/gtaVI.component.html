@@ -9,7 +9,7 @@
     <svg-icon src="assets/tower-left.svg"></svg-icon>
     <div class="ocean"><div class="ocean-reflection"></div></div>
     <div class="hero-content">
-      <h1 class="gta-logo">Cuenta regresiva lanzamiento</h1>
+      <h1 class="gta-logo">{{ 'HOME.HERO_TITLE' | translate }}</h1>
       <div class="vi-badge">VI</div>
       <div class="launch-label">&#9679; Grand Theft Auto &#9679;</div>
     </div>
@@ -17,17 +17,21 @@
 
   <div class="countdown-section">
     <div class="info-bar">
-      <div class="info-date">19 Noviembre 2026</div>
+      <div class="info-date">{{ 'HOME.DATE' | translate }}</div>
       <div class="info-platform">PS5 &nbsp;&#183;&nbsp; Xbox Series X</div>
     </div>
     <div class="countdown-grid">
-      <div class="unit-card"><span class="unit-number">{{this.cdDays}}</span><span class="unit-label">Días</span></div>
-      <div class="unit-card"><span class="unit-number">{{this.cdHours}}</span><span class="unit-label">Horas</span></div>
-      <div class="unit-card"><span class="unit-number">{{this.cdMins}}</span><span class="unit-label">Minutos</span></div>
-      <div class="unit-card"><span class="unit-number">{{this.cdSecs}}</span><span class="unit-label">Segundos</span></div>
+      <div class="unit-card"><span class="unit-number">{{cdDays}}</span><span class="unit-label">{{ 'HOME.DAYS' | translate }}</span></div>
+      <div class="unit-card"><span class="unit-number">{{cdHours}}</span><span class="unit-label">{{ 'HOME.HOURS' | translate }}</span></div>
+      <div class="unit-card"><span class="unit-number">{{cdMins}}</span><span class="unit-label">{{ 'HOME.MINS' | translate }}</span></div>
+      <div class="unit-card"><span class="unit-number">{{cdSecs}}</span><span class="unit-label">{{ 'HOME.SECS' | translate }}</span></div>
     </div>
-    <div class="progress-bar"><div class="progress-fill" id="prog-fill" [style.width]="this.progFill"></div></div>
-    <div class="progress-labels"><span>Anuncio trailer 1</span><span>{{this.progPct}} — % completado</span><span>Lanzamiento</span></div>
+    <div class="progress-bar"><div class="progress-fill" id="prog-fill" [style.width]="progFill"></div></div>
+    <div class="progress-labels">
+      <span>{{ 'HOME.PROGRESS_START' | translate }}</span>
+      <span>{{ 'HOME.PROGRESS_PCT' | translate: { value: progPct } }}</span>
+      <span>{{ 'HOME.PROGRESS_END' | translate }}</span>
+    </div>
     <div class="tags">
       <div class="tag"><a class="text-decoration-none text-reset" href="https://www.rockstargames.com/mx/games/vicecity" target="_blank">Vice City</a></div>
       <div class="tag">Open World</div>

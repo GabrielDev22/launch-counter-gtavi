@@ -4,11 +4,29 @@
     <div class="logo-text">GTA<span>VI</span>.countdown</div>
   </a>
   <div class="nav-links">
-    <a class="nav-link" [routerLink]="ROUTES_MAP.HOME">Inicio</a>
-    <a class="nav-link" [routerLink]="ROUTES_MAP.NOTIFICIE">Noticias</a>
-    <a class="nav-link" [routerLink]="ROUTES_MAP.MAP">Mapa</a>
-    <a class="nav-link" [routerLink]="ROUTES_MAP.CHARACTERS">Personajes</a>
-    <a class="nav-link" [routerLink]="ROUTES_MAP.FAQ">FAQ</a>
-    <button class="nav-cta">Compartir</button>
+    <a class="nav-link" [routerLink]="ROUTES_MAP.HOME">{{"GTA_HEADER.HOME" | translate}}</a>
+    <a class="nav-link" [routerLink]="ROUTES_MAP.NOTIFICIE">{{"GTA_HEADER.NOTICIES" | translate}}</a>
+    <a class="nav-link" [routerLink]="ROUTES_MAP.MAP">{{"GTA_HEADER.MAP" | translate}}</a>
+    <a class="nav-link" [routerLink]="ROUTES_MAP.CHARACTERS">{{"GTA_HEADER.CHARACTER" | translate}}</a>
+    <a class="nav-link" [routerLink]="ROUTES_MAP.FAQ">{{"GTA_HEADER.FAQ" | translate}}</a>
+
+    <div class="lang-menu" [class.lang-menu--open]="isLangOpen">
+      <button class="nav-cta" (click)="toggleLangMenu()">
+        {{ currentLang.toUpperCase() }}
+        <span class="lang-chevron">&#9660;</span>
+      </button>
+      @if (isLangOpen) {
+        <div class="lang-dropdown">
+          @for (lang of languages; track lang.code) {
+            <button
+              class="lang-option"
+              [class.lang-option--active]="currentLang === lang.code"
+              (click)="selectLang(lang.code)">
+              {{ lang.label }}
+            </button>
+          }
+        </div>
+      }
+    </div>
   </div>
 </div>

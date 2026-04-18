@@ -75,6 +75,64 @@
   letter-spacing: 1.5px; text-transform: uppercase;
   background: linear-gradient(135deg, #ff6a00, #ff0070);
   color: #fff; cursor: pointer; border: none; font-family: 'Oswald', sans-serif;
+  display: flex; align-items: center; gap: 5px;
+}
+
+.lang-chevron {
+  font-size: 8px;
+  transition: transform 0.2s ease;
+  display: inline-block;
+  line-height: 1;
+}
+
+.lang-menu {
+  position: relative;
+
+  &--open .lang-chevron {
+    transform: rotate(180deg);
+  }
+}
+
+.lang-dropdown {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  background: rgba(12, 12, 12, 0.98);
+  border: 1px solid rgba(255, 106, 0, 0.3);
+  border-radius: 8px;
+  min-width: 130px;
+  overflow: hidden;
+  z-index: 200;
+  animation: langFadeIn 0.15s ease;
+}
+
+.lang-option {
+  display: block;
+  width: 100%;
+  padding: 10px 16px;
+  text-align: left;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.15s;
+
+  &:hover {
+    background: rgba(255, 106, 0, 0.1);
+    color: #fff;
+  }
+
+  &--active {
+    color: #ff6a00;
+  }
+}
+
+@keyframes langFadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 .nav-sep { 
