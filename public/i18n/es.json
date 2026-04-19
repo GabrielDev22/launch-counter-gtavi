@@ -73,6 +73,50 @@
       }
     }
   },
+  "FAQ":{
+    "LABEL": "PREGUNTAS FRECUENTES",
+    "TITLE": "Las <span class='faq-gradient-text'>100 preguntas</span> más frecuentes sobre GTA VI",
+    "SUBTITLE": "Todo lo que querés saber sobre Grand Theft Auto VI: fecha, plataformas, mapa, personajes, gameplay y más. Actualizado con la información más reciente.",
+    "SEARCH": "Buscar pregunta...",
+    "SEARCH_RESULT": "100 Resultados",
+    "INDEX":{
+      "TITLE": "Índice",
+      "REALESE_DATE": {
+        "TITLE": "Fecha & lanzamiento",
+        "ONE": "¿Cúando sale GTA VI?",
+        "TWO": "¿Por qué se retrasó GTA VI?",
+        "THREE": "¿Puede retrarse nuevamente?",
+        "FOUR": "¿Hay fecha exacta de lanzamiento?",
+        "FIVE": "¿Sale GTA VI en la navidades de 2026?",
+        "SIX": "¿Cuántos trailers hay de GTA VI?",
+        "SEVEN": "¿Cúando se anunció GTA VI?",
+        "EIGTH": "¿Habrá pre-order de GTA VI?",
+        "NINE": "¿Hay edición especial o coleccionista?",
+        "TEN": "¿Cúanto tiempo falta para GTA VI?",
+        "ONCE": "¿Dónde comprar GTA VI en Argentina?",
+        "TWELVE": "¿Habrá descuentos de lanzamiento?",
+        "THIRTEEN": "¿Cúanto va a costar GTA VI?"
+      },
+      "PLATFORM": {
+        "TITLE": "Plataforma"
+      },
+      "MAP_AND_WORLD": {
+        "TITLE": "Mapa & Mundo"
+      },
+      "CHARACTER": {
+        "TITLE": "Personajes"
+      },
+      "GAMEPLAY": {
+        "TITLE": "Gameplay"
+      },
+      "TECNICAL_AND_PC":{
+        "TITLE": "Técnico & Pc"
+      },
+      "HISTORY":{
+        "TITLE": "Historia"
+      }
+    }
+  },
   "CHARACTERS": {
     "LABEL": "Protagonistas Confirmados",
     "TITLE": "PERSONAJES",

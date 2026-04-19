@@ -1,0 +1,97 @@
+<div class="container-faq">
+
+    <div class="char-header">
+        <span class="char-header__label">{{'FAQ.LABEL' | translate }}</span>
+        <h1 class="char-header__title" [innerHTML]="'FAQ.TITLE' | translate"></h1>
+        <p class="char-header__sub">{{'FAQ.SUBTITLE' | translate }}</p>
+    </div>
+
+    <div class="row padding-general-architect">
+     
+        <div class="row g-0 mb-5">
+            <div class="col-6">
+                <input class="form-control faq-form" id="exampleDataList" [placeholder]="'FAQ.SEARCH' | translate">
+            </div>
+            <div class="col-6 d-flex align-items-center">
+                <span class="text-search-result ms-2">{{"FAQ.SEARCH_RESULT" | translate}}</span>
+            </div>
+        </div>
+
+        <div class="row g-0 mb-5">
+            <div class="col-3">
+                <div class="text-faq-index mb-3">
+                    {{"FAQ.INDEX.TITLE" | translate}}
+                </div>
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                {{"FAQ.INDEX.REALESE_DATE.TITLE" | translate}} 
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <ul>
+                                    @for (item of sectionRealeseDate; track item.id) {
+                                      <li class="accordion-list-faq" 
+                                      [class.active.faq]="activeSection === item.id" 
+                                      (click)="scrollToSection(item.id)">
+                                        {{item.label | translate}}
+                                      </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                {{"FAQ.INDEX.PLATFORM.TITLE" | translate}} 
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <ul>
+                                    @for (item of sectionRealeseDate; track item.id) {
+                                      <li class="accordion-list-faq" 
+                                      [class.active.faq]="activeSection === item.id" 
+                                      (click)="scrollToSection(item.id)">
+                                        {{item.label | translate}}
+                                      </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                {{"FAQ.INDEX.MAP_AND_WORLD.TITLE" | translate}} 
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <ul>
+                                    @for (item of sectionRealeseDate; track item.id) {
+                                      <li class="accordion-list-faq" 
+                                      [class.active.faq]="activeSection === item.id" 
+                                      (click)="scrollToSection(item.id)">
+                                        {{item.label | translate}}
+                                      </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-9">
+
+            </div>
+        </div>
+
+    
+
+    </div>
+
+</div>

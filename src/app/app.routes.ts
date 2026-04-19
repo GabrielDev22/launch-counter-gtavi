@@ -1,9 +1,6 @@
 import { Routes } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
-import { NoticiesGtaviComponent } from './layout/content/noticies-gtavi/noticies-gtavi.component';
 import { GtaVIComponent } from './layout/content/gtaVI/gtaVI.component';
-import { GtaCharacterComponent } from './layout/content/gta-character/gta-character.component';
-import { GtaWorldMapComponent } from './layout/content/gta-world-map/gta-world-map.component';
 
 export const routes: Routes = [
     {
@@ -21,6 +18,9 @@ export const routes: Routes = [
             },
             {
                 path: 'characters', loadComponent: () => import('./layout/content/gta-character/gta-character.component').then(m => m.GtaCharacterComponent) 
+            },
+            {
+                path: 'faq', loadComponent: () => import('./layout/content/gta-faq/gta-faq.component').then(m => m.GtaFaqComponent) 
             }
         ]
     },
