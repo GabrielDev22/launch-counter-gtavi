@@ -7,11 +7,10 @@
   min-height: 100vh;
   background: $bg-primary;
   font-family: $font-gta;
-  padding-bottom: 48px;
+  padding: 32px 24px 24px;
 }
 
 ::ng-deep .char-header {
-  padding: 32px 24px 24px;
   border-bottom: 1px solid $border-orange;
 
   &__label {
@@ -75,6 +74,10 @@
   font-family: $font-primary;
   color: $text-subtle;
   padding: 4px;
+  font-size: $text-xl;
+}
+
+.border-dim{
   border-bottom: 1px solid $border-dim;
 }
 
@@ -135,4 +138,57 @@
     }
 
   }
+}
+
+
+.container-faq-response{
+  border-left: 1px solid $border-dim;
+
+
+  .header-faq-response{
+    padding: 4px;
+  
+    &__header{
+      span{
+        margin-left: 2rem;
+        color: $text-primary;
+        font-family: $font-gta;
+        font-size: $text-xl;
+      }
+  
+    }
+  }
+
+  .body-faq-response{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__content{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      border-radius: $radius-md;
+      border: 1px solid $border-subtle;
+      padding: 8px;
+      margin-top: 20px;
+      margin-left: 2rem;
+
+      &:hover{
+        background: $gradient-brand;
+        transition: all 4s ease-in-out;
+      }
+
+      span{
+        color: #e0e0e0;
+        margin-left: 5px;
+      }
+    }
+  }
+
+}
+
+::ng-deep .svg-plus-faq svg{
+  fill: $accent-orange;
 }

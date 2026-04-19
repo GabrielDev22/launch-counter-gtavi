@@ -18,11 +18,11 @@
         </div>
 
         <div class="row g-0 mb-5">
-            <div class="col-3">
-                <div class="text-faq-index mb-3">
+            <div class="col-4">
+                <div class="text-faq-index mb-3 border-dim">
                     {{"FAQ.INDEX.TITLE" | translate}}
                 </div>
-                <div class="accordion" id="accordionExample">
+                <div class="w-75 accordion" id="accordionExample">
                     <div class="accordion-item">
                         <h2 class="accordion-header">
                             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -52,7 +52,7 @@
                         <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
                                 <ul>
-                                    @for (item of sectionRealeseDate; track item.id) {
+                                    @for (item of sectionPlatform; track item.id) {
                                       <li class="accordion-list-faq" 
                                       [class.active.faq]="activeSection === item.id" 
                                       (click)="scrollToSection(item.id)">
@@ -72,7 +72,87 @@
                         <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
                                 <ul>
-                                    @for (item of sectionRealeseDate; track item.id) {
+                                    @for (item of sectionMapAndWorld; track item.id) {
+                                      <li class="accordion-list-faq" 
+                                      [class.active.faq]="activeSection === item.id" 
+                                      (click)="scrollToSection(item.id)">
+                                        {{item.label | translate}}
+                                      </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                {{"FAQ.INDEX.CHARACTER.TITLE" | translate}} 
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <ul>
+                                    @for (item of sectionCharacter; track item.id) {
+                                      <li class="accordion-list-faq" 
+                                      [class.active.faq]="activeSection === item.id" 
+                                      (click)="scrollToSection(item.id)">
+                                        {{item.label | translate}}
+                                      </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                {{"FAQ.INDEX.GAMEPLAY.TITLE" | translate}} 
+                            </button>
+                        </h2>
+                        <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <ul>
+                                    @for (item of sectionGameplay; track item.id) {
+                                      <li class="accordion-list-faq" 
+                                      [class.active.faq]="activeSection === item.id" 
+                                      (click)="scrollToSection(item.id)">
+                                        {{item.label | translate}}
+                                      </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                {{"FAQ.INDEX.TECNICAL_AND_PC.TITLE" | translate}} 
+                            </button>
+                        </h2>
+                        <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <ul>
+                                    @for (item of sectionTecnicalAndPc; track item.id) {
+                                      <li class="accordion-list-faq" 
+                                      [class.active.faq]="activeSection === item.id" 
+                                      (click)="scrollToSection(item.id)">
+                                        {{item.label | translate}}
+                                      </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                {{"FAQ.INDEX.HISTORY.TITLE" | translate}} 
+                            </button>
+                        </h2>
+                        <div id="collapseSeven" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <ul>
+                                    @for (item of sectionHistory; track item.id) {
                                       <li class="accordion-list-faq" 
                                       [class.active.faq]="activeSection === item.id" 
                                       (click)="scrollToSection(item.id)">
@@ -85,8 +165,29 @@
                     </div>
                 </div>
             </div>
-            <div class="col-9">
-
+            <div class="col-8">
+                <div class="container-faq-response">
+                    <div class="content-section-response">
+                        <div class="header-faq-response border-dim">
+                            <div class="header-faq-response__header">
+                                <span>{{"FAQ.INDEX.REALESE_DATE.TITLE" | translate}}</span>
+                            </div>
+                        </div>
+                        @for (item of sectionRealeseDate; track item.id) {
+                            <div class="body-faq-response">
+                                <div class="body-faq-response__content">
+                                    <div>
+                                        <span class="me-4">{{item.id}}</span>
+                                        <span>{{item.label | translate}}</span>
+                                    </div>
+                                    <span class="svg-plus-faq">
+                                        <svg-icon src="assets/plus.svg"></svg-icon>
+                                    </span>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
             </div>
         </div>
 
