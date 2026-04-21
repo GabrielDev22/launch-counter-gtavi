@@ -3,3 +3,9 @@
     margin: 0; 
     padding: 0; 
 }
+
+.padding-general-architect{
+  padding: 32px 24px 24px;
+}
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
