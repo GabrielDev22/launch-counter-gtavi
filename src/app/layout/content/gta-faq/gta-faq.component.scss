@@ -143,8 +143,7 @@
 
 .container-faq-response{
   border-left: 1px solid $border-dim;
-
-
+  
   .header-faq-response{
     padding: 4px;
   
@@ -159,36 +158,100 @@
     }
   }
 
-  .body-faq-response{
-    width: 100%;
+}
+
+// =====================
+// FAQ ACCORDION ITEMS
+// =====================
+
+.faq-item {
+  margin-top: 12px;
+  margin-left: 2rem;
+  border: 1px solid $border-subtle;
+  border-radius: $radius-md;
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+
+  &--open {
+    border-color: $border-orange-md;
+  }
+
+  &__header {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    padding: 12px 14px;
+    background: $bg-surface;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.15s ease;
 
-    &__content{
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      border-radius: $radius-md;
-      border: 1px solid $border-subtle;
-      padding: 8px;
-      margin-top: 20px;
-      margin-left: 2rem;
-
-      &:hover{
-        background: $gradient-brand;
-        transition: all 4s ease-in-out;
-      }
-
-      span{
-        color: #e0e0e0;
-        margin-left: 5px;
-      }
+    &:hover {
+      background: rgba(255, 80, 0, 0.06);
     }
   }
 
+  &--open &__header {
+    background: rgba(255, 80, 0, 0.06);
+  }
+
+  &__question {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    span {
+      color: #e0e0e0;
+      font-size: $text-sm;
+      font-family: $font-primary;
+    }
+  }
+
+  &__num {
+    font-size: $text-xs;
+    color: $text-ghost;
+    letter-spacing: $tracking-title;
+    min-width: 20px;
+  }
+
+  &__body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+    font-family: $font-primary;
+    font-size: $text-sm;
+    color: $text-muted;
+    line-height: 1.75;
+    background: rgba(0, 0, 0, 0.25);
+    border-top: 0 solid $border-subtle;
+
+    p {
+      margin: 0;
+      padding: 0 14px;
+    }
+
+    &--open {
+      max-height: 300px;
+      border-top: 1px solid $border-subtle;
+
+      p {
+        padding: 14px;
+      }
+    }
+  }
 }
 
-::ng-deep .svg-plus-faq svg{
-  fill: $accent-orange;
+::ng-deep .svg-plus-faq {
+  display: flex;
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+  margin-bottom: 5px;
+
+  svg {
+    fill: $accent-orange;
+  }
+
+  &--open {
+    transform: rotate(45deg);
+  }
 }

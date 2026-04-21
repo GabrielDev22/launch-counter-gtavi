@@ -174,15 +174,167 @@
                             </div>
                         </div>
                         @for (item of sectionRealeseDate; track item.id) {
-                            <div class="body-faq-response">
-                                <div class="body-faq-response__content">
-                                    <div>
-                                        <span class="me-4">{{item.id}}</span>
+                            <div class="faq-item"
+                                 [attr.id]="item.id"
+                                 [class.faq-item--open]="openItemId === item.id">
+                                <div class="faq-item__header" (click)="toggleItem(item.id)">
+                                    <div class="faq-item__question">
+                                        <span class="faq-item__num">{{item.id}}</span>
                                         <span>{{item.label | translate}}</span>
                                     </div>
-                                    <span class="svg-plus-faq">
+                                    <span class="svg-plus-faq"
+                                          [class.svg-plus-faq--open]="openItemId === item.id">
                                         <svg-icon src="assets/plus.svg"></svg-icon>
                                     </span>
+                                </div>
+                                <div class="faq-item__body"
+                                     [class.faq-item__body--open]="openItemId === item.id">
+                                    <p>{{ item.label | translate }}</p>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="container-faq-response">
+                    <div class="content-section-response">
+                        <div class="header-faq-response border-dim">
+                            <div class="header-faq-response__header">
+                                <span>{{"FAQ.INDEX.PLATFORM.TITLE" | translate}}</span>
+                            </div>
+                        </div>
+                        @for (item of sectionPlatform; track item.id) {
+                            <div class="faq-item"
+                                 [attr.id]="item.id"
+                                 [class.faq-item--open]="openItemId === item.id">
+                                <div class="faq-item__header" (click)="toggleItem(item.id)">
+                                    <div class="faq-item__question">
+                                        <span class="faq-item__num">{{item.id}}</span>
+                                        <span>{{item.label | translate}}</span>
+                                    </div>
+                                    <span class="svg-plus-faq"
+                                          [class.svg-plus-faq--open]="openItemId === item.id">
+                                        <svg-icon src="assets/plus.svg"></svg-icon>
+                                    </span>
+                                </div>
+                                <div class="faq-item__body"
+                                     [class.faq-item__body--open]="openItemId === item.id">
+                                    <p>{{ item.label | translate }}</p>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="container-faq-response">
+                    <div class="content-section-response">
+                        <div class="header-faq-response border-dim">
+                            <div class="header-faq-response__header">
+                                <span>{{"FAQ.INDEX.MAP_AND_WORLD.TITLE" | translate}}</span>
+                            </div>
+                        </div>
+                        @for (item of sectionMapAndWorld; track item.id) {
+                            <div class="faq-item"
+                                 [attr.id]="item.id"
+                                 [class.faq-item--open]="openItemId === item.id">
+                                <div class="faq-item__header" (click)="toggleItem(item.id)">
+                                    <div class="faq-item__question">
+                                        <span class="faq-item__num">{{item.id}}</span>
+                                        <span>{{item.label | translate}}</span>
+                                    </div>
+                                    <span class="svg-plus-faq"
+                                          [class.svg-plus-faq--open]="openItemId === item.id">
+                                        <svg-icon src="assets/plus.svg"></svg-icon>
+                                    </span>
+                                </div>
+                                <div class="faq-item__body"
+                                     [class.faq-item__body--open]="openItemId === item.id">
+                                    <p>{{ item.label | translate }}</p>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="container-faq-response">
+                    <div class="content-section-response">
+                        <div class="header-faq-response border-dim">
+                            <div class="header-faq-response__header">
+                                <span>{{"FAQ.INDEX.CHARACTER.TITLE" | translate}}</span>
+                            </div>
+                        </div>
+                        @for (item of sectionCharacter; track item.id) {
+                            <div class="faq-item"
+                                 [attr.id]="item.id"
+                                 [class.faq-item--open]="openItemId === item.id">
+                                <div class="faq-item__header" (click)="toggleItem(item.id)">
+                                    <div class="faq-item__question">
+                                        <span class="faq-item__num">{{item.id}}</span>
+                                        <span>{{item.label | translate}}</span>
+                                    </div>
+                                    <span class="svg-plus-faq"
+                                          [class.svg-plus-faq--open]="openItemId === item.id">
+                                        <svg-icon src="assets/plus.svg"></svg-icon>
+                                    </span>
+                                </div>
+                                <div class="faq-item__body"
+                                     [class.faq-item__body--open]="openItemId === item.id">
+                                    <p>{{ item.label | translate }}</p>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="container-faq-response">
+                    <div class="content-section-response">
+                        <div class="header-faq-response border-dim">
+                            <div class="header-faq-response__header">
+                                <span>{{"FAQ.INDEX.TECNICAL_AND_PC.TITLE" | translate}}</span>
+                            </div>
+                        </div>
+                        @for (item of sectionTecnicalAndPc; track item.id) {
+                            <div class="faq-item"
+                                 [attr.id]="item.id"
+                                 [class.faq-item--open]="openItemId === item.id">
+                                <div class="faq-item__header" (click)="toggleItem(item.id)">
+                                    <div class="faq-item__question">
+                                        <span class="faq-item__num">{{item.id}}</span>
+                                        <span>{{item.label | translate}}</span>
+                                    </div>
+                                    <span class="svg-plus-faq"
+                                          [class.svg-plus-faq--open]="openItemId === item.id">
+                                        <svg-icon src="assets/plus.svg"></svg-icon>
+                                    </span>
+                                </div>
+                                <div class="faq-item__body"
+                                     [class.faq-item__body--open]="openItemId === item.id">
+                                    <p>{{ item.label | translate }}</p>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="container-faq-response">
+                    <div class="content-section-response">
+                        <div class="header-faq-response border-dim">
+                            <div class="header-faq-response__header">
+                                <span>{{"FAQ.INDEX.HISTORY.TITLE" | translate}}</span>
+                            </div>
+                        </div>
+                        @for (item of sectionHistory; track item.id) {
+                            <div class="faq-item"
+                                 [attr.id]="item.id"
+                                 [class.faq-item--open]="openItemId === item.id">
+                                <div class="faq-item__header" (click)="toggleItem(item.id)">
+                                    <div class="faq-item__question">
+                                        <span class="faq-item__num">{{item.id}}</span>
+                                        <span>{{item.label | translate}}</span>
+                                    </div>
+                                    <span class="svg-plus-faq"
+                                          [class.svg-plus-faq--open]="openItemId === item.id">
+                                        <svg-icon src="assets/plus.svg"></svg-icon>
+                                    </span>
+                                </div>
+                                <div class="faq-item__body"
+                                     [class.faq-item__body--open]="openItemId === item.id">
+                                    <p>{{ item.label | translate }}</p>
                                 </div>
                             </div>
                         }
