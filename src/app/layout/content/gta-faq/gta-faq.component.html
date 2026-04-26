@@ -10,7 +10,7 @@
      
         <div class="row g-0 mb-5">
             <div class="col-6">
-                <input class="form-control faq-form" id="exampleDataList" [placeholder]="'FAQ.SEARCH' | translate">
+                <input class="form-control faq-form" id="exampleDataList" [placeholder]="'FAQ.SEARCH' | translate" [formControl]="searchControl">
             </div>
             <div class="col-6 d-flex align-items-center">
                 <span class="text-search-result ms-2">{{"FAQ.SEARCH_RESULT" | translate}}</span>
@@ -166,6 +166,35 @@
                 </div>
             </div>
             <div class="col-8">
+                @if (isSearching) {
+                    <div class="container-faq-response">
+                        <div class="content-section-response">
+                            @for (item of filteredFaqs; track item.id) {
+                                <div class="faq-item"
+                                     [attr.id]="item.id"
+                                     [class.faq-item--open]="openItemId === item.id">
+                                    <div class="faq-item__header" (click)="toggleItem(item.id)">
+                                        <div class="faq-item__question">
+                                            <span class="faq-item__num">{{item.id}}</span>
+                                            <span>{{item.label | translate}}</span>
+                                        </div>
+                                        <span class="svg-plus-faq"
+                                              [class.svg-plus-faq--open]="openItemId === item.id">
+                                            <svg-icon src="assets/plus.svg"></svg-icon>
+                                        </span>
+                                    </div>
+                                    <div class="faq-item__body"
+                                         [class.faq-item__body--open]="openItemId === item.id">
+                                        <p>{{ item.value | translate }}</p>
+                                    </div>
+                                </div>
+                            }
+                            @empty {
+                                <p class="text-search-result ms-2">{{"FAQ.NO_RESULTS" | translate}}</p>
+                            }
+                        </div>
+                    </div>
+                } @else {
                 <div class="container-faq-response">
                     <div class="content-section-response">
                         <div class="header-faq-response border-dim">
@@ -289,6 +318,35 @@
                                 <span>{{"FAQ.INDEX.TECNICAL_AND_PC.TITLE" | translate}}</span>
                             </div>
                         </div>
+                        @for (item of sectionGameplay; track item.id) {
+                            <div class="faq-item"
+                                 [attr.id]="item.id"
+                                 [class.faq-item--open]="openItemId === item.id">
+                                <div class="faq-item__header" (click)="toggleItem(item.id)">
+                                    <div class="faq-item__question">
+                                        <span class="faq-item__num">{{item.id}}</span>
+                                        <span>{{item.label | translate}}</span>
+                                    </div>
+                                    <span class="svg-plus-faq"
+                                          [class.svg-plus-faq--open]="openItemId === item.id">
+                                        <svg-icon src="assets/plus.svg"></svg-icon>
+                                    </span>
+                                </div>
+                                <div class="faq-item__body"
+                                     [class.faq-item__body--open]="openItemId === item.id">
+                                    <p>{{ item.label | translate }}</p>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="container-faq-response">
+                    <div class="content-section-response">
+                        <div class="header-faq-response border-dim">
+                            <div class="header-faq-response__header">
+                                <span>{{"FAQ.INDEX.TECNICAL_AND_PC.TITLE" | translate}}</span>
+                            </div>
+                        </div>
                         @for (item of sectionTecnicalAndPc; track item.id) {
                             <div class="faq-item"
                                  [attr.id]="item.id"
@@ -340,6 +398,7 @@
                         }
                     </div>
                 </div>
+                } <!-- end @else -->
             </div>
         </div>
 
