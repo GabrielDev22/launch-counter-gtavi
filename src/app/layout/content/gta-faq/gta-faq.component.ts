@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-gta-faq',
@@ -140,7 +141,9 @@ export class GtaFaqComponent implements OnInit {
   ]
 
   constructor(
-    private _translationService : TranslateService 
+    private _translationService : TranslateService,
+    private titleService: Title,
+    private metaService : Meta, 
   ){
     this.globalFaqContent.push(
       ...this.sectionRealeseDate,
@@ -168,12 +171,39 @@ export class GtaFaqComponent implements OnInit {
   }
 
   ngOnInit(){
+    this.setKeywordsForPositionGoogle();
     this.searchControl.valueChanges.subscribe(value => {
       if (value?.trim()) {
         this.filterFaqs(value);
       } else {
         this.filteredFaqs = [...this.globalFaqContent];
       }
+    });
+  }
+
+  setKeywordsForPositionGoogle(){
+    this.titleService.setTitle(
+      'Preguntas Frecuentes de GTA VI (FAQ) — Todo sobre GTA 6: fecha, mapa, personajes y más'
+    );
+
+    this.metaService.updateTag({
+      name: 'description',
+      content: 'Respuestas a las preguntas más frecuentes sobre GTA VI: fecha de lanzamiento, mapa de Leonida, personajes como Lucia y Jason, plataformas, gameplay y todas las novedades de GTA 6.'
+    });
+
+    this.metaService.updateTag({
+      name: 'keywords',
+      content: 'preguntas frecuentes GTA VI, GTA 6 FAQ, fecha lanzamiento GTA 6, mapa GTA VI, personajes GTA 6, Lucia Jason GTA VI, gameplay GTA 6'
+    });
+
+    this.metaService.updateTag({
+      property: 'og:title',
+      content: 'FAQ GTA VI — Todas las preguntas y respuestas sobre GTA 6'
+    });
+
+    this.metaService.updateTag({
+      property: 'og:description',
+      content: 'Descubre todo sobre GTA VI: mapa, personajes, fecha de lanzamiento, gameplay y más en esta guía completa de preguntas frecuentes.'
     });
   }
 
