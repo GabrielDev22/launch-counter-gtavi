@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { TranslatePipe } from '@ngx-translate/core';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { AngularSvgIconModule } from 'angular-svg-icon';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-gta-faq',
   standalone: true,
-  imports: [TranslatePipe, CommonModule, AngularSvgIconModule],
+  imports: [TranslatePipe, CommonModule, AngularSvgIconModule, ReactiveFormsModule ],
   templateUrl: './gta-faq.component.html',
   styleUrl: './gta-faq.component.scss'
 })
@@ -14,6 +15,9 @@ export class GtaFaqComponent implements OnInit {
 
   activeSection: string = '';
   openItemId: string | null = null;
+  searchControl = new FormControl('');
+  globalFaqContent : any[] = [];
+  filteredFaqs: any[] = [];
 
   sectionRealeseDate = [
     {id: "1", label: "FAQ.INDEX.REALESE_DATE.ONE", value: "FAQ.INDEX.REALESE_DATE_RESPONSE.ONE"},
@@ -74,7 +78,7 @@ export class GtaFaqComponent implements OnInit {
     {id: "46", label: "FAQ.INDEX.CHARACTER.FIVE", value: "FAQ.INDEX.CHARACTER_RESPONSE.FIVE"},
     {id: "47", label: "FAQ.INDEX.CHARACTER.SIX", value: "FAQ.INDEX.CHARACTER_RESPONSE.SIX"},
     {id: "48", label: "FAQ.INDEX.CHARACTER.SEVEN", value: "FAQ.INDEX.CHARACTER_RESPONSE.SEVEN"},
-    {id: "49", label: "FAQ.INDEX.CHARACTER.EIGTH", value: "FAQ.INDEX.CHARACTER_RESPONSE.EIGHT"},
+    {id: "49", label: "FAQ.INDEX.CHARACTER.EIGTH", value: "FAQ.INDEX.CHARACTER_RESPONSE.EIGTH"},
     {id: "50", label: "FAQ.INDEX.CHARACTER.NINE", value: "FAQ.INDEX.CHARACTER_RESPONSE.NINE"},
     {id: "51", label: "FAQ.INDEX.CHARACTER.TEN", value: "FAQ.INDEX.CHARACTER_RESPONSE.TEN"},
     {id: "52", label: "FAQ.INDEX.CHARACTER.ONCE", value: "FAQ.INDEX.CHARACTER_RESPONSE.ONCE"},
@@ -90,7 +94,7 @@ export class GtaFaqComponent implements OnInit {
     {id: "59", label: "FAQ.INDEX.GAMEPLAY.FIVE", value: "FAQ.INDEX.GAMEPLAY_RESPONSE.FIVE"},
     {id: "60", label: "FAQ.INDEX.GAMEPLAY.SIX", value: "FAQ.INDEX.GAMEPLAY_RESPONSE.SIX"},
     {id: "61", label: "FAQ.INDEX.GAMEPLAY.SEVEN", value: "FAQ.INDEX.GAMEPLAY_RESPONSE.SEVEN"},
-    {id: "62", label: "FAQ.INDEX.GAMEPLAY.EIGTH", value: "FAQ.INDEX.GAMEPLAY_RESPONSE.EIGHT"},
+    {id: "62", label: "FAQ.INDEX.GAMEPLAY.EIGTH", value: "FAQ.INDEX.GAMEPLAY_RESPONSE.EIGTH"},
     {id: "63", label: "FAQ.INDEX.GAMEPLAY.NINE", value: "FAQ.INDEX.GAMEPLAY_RESPONSE.NINE"},
     {id: "64", label: "FAQ.INDEX.GAMEPLAY.TEN", value: "FAQ.INDEX.GAMEPLAY_RESPONSE.TEN"},
     {id: "65", label: "FAQ.INDEX.GAMEPLAY.ONCE", value: "FAQ.INDEX.GAMEPLAY_RESPONSE.ONCE"},
@@ -98,7 +102,7 @@ export class GtaFaqComponent implements OnInit {
     {id: "67", label: "FAQ.INDEX.GAMEPLAY.THIRTEEN", value: "FAQ.INDEX.GAMEPLAY_RESPONSE.THIRTEEN"},
     {id: "68", label: "FAQ.INDEX.GAMEPLAY.FOURTEEN", value: "FAQ.INDEX.GAMEPLAY_RESPONSE.FOURTEEN"},
     {id: "69", label: "FAQ.INDEX.GAMEPLAY.FIFTEEN", value: "FAQ.INDEX.GAMEPLAY_RESPONSE.FIFTEEN"},
-    {id: "70", label: "FAQ.INDEX.GAMEPLAY.SIXTEEN", value: "FAQ.INDEX.GAMEPLAY_RESPONSE.SIXTEEN"},
+    {id: "70", label: "FAQ.INDEX.GAMEPLAY.SEXTEEN", value: "FAQ.INDEX.GAMEPLAY_RESPONSE.SEXTEEN"},
     {id: "71", label: "FAQ.INDEX.GAMEPLAY.SEVENTEEN", value: "FAQ.INDEX.GAMEPLAY_RESPONSE.SEVENTEEN"},
     {id: "72", label: "FAQ.INDEX.GAMEPLAY.EIGHTEEN", value: "FAQ.INDEX.GAMEPLAY_RESPONSE.EIGHTEEN"},
     {id: "73", label: "FAQ.INDEX.GAMEPLAY.NINETEEN", value: "FAQ.INDEX.GAMEPLAY_RESPONSE.NINETEEN"},
@@ -116,9 +120,7 @@ export class GtaFaqComponent implements OnInit {
     {id: "82", label: "FAQ.INDEX.TECNICAL_AND_PC.NINE", value: "FAQ.INDEX.TECNICAL_AND_PC_RESPONSE.NINE"},
     {id: "83", label: "FAQ.INDEX.TECNICAL_AND_PC.TEN", value: "FAQ.INDEX.TECNICAL_AND_PC_RESPONSE.TEN"},
     {id: "84", label: "FAQ.INDEX.TECNICAL_AND_PC.ONCE", value: "FAQ.INDEX.TECNICAL_AND_PC_RESPONSE.ONCE"},
-    {id: "85", label: "FAQ.INDEX.TECNICAL_AND_PC.TWELVE", value: "FAQ.INDEX.TECNICAL_AND_PC_RESPONSE.TWELVE"},
-    {id: "86", label: "FAQ.INDEX.TECNICAL_AND_PC.THIRTEEN", value: "FAQ.INDEX.TECNICAL_AND_PC_RESPONSE.THIRTEEN"}
-  ]
+    {id: "85", label: "FAQ.INDEX.TECNICAL_AND_PC.TWELVE", value: "FAQ.INDEX.TECNICAL_AND_PC_RESPONSE.TWELVE"},  ]
 
   sectionHistory = [
     {id: "87", label: "FAQ.INDEX.HISTORY.ONE", value: "FAQ.INDEX.HISTORY_RESPONSE.ONE"},
@@ -137,11 +139,42 @@ export class GtaFaqComponent implements OnInit {
     {id: "100", label: "FAQ.INDEX.HISTORY.FOURTEEN", value: "FAQ.INDEX.HISTORY_RESPONSE.FOURTEEN"},
   ]
 
-  constructor(){
+  constructor(
+    private _translationService : TranslateService 
+  ){
+    this.globalFaqContent.push(
+      ...this.sectionRealeseDate,
+      ...this.sectionPlatform,
+      ...this.sectionMapAndWorld,
+      ...this.sectionCharacter,
+      ...this.sectionGameplay,
+      ...this.sectionTecnicalAndPc,
+      ...this.sectionHistory
+    );
 
+    this.filteredFaqs.push(
+      ...this.sectionRealeseDate,
+      ...this.sectionPlatform,
+      ...this.sectionMapAndWorld,
+      ...this.sectionCharacter,
+      ...this.sectionGameplay,
+      ...this.sectionTecnicalAndPc,
+      ...this.sectionHistory
+    );
+  }
+  
+  get isSearching(): boolean {
+    return !!this.searchControl.value?.trim();
   }
 
   ngOnInit(){
+    this.searchControl.valueChanges.subscribe(value => {
+      if (value?.trim()) {
+        this.filterFaqs(value);
+      } else {
+        this.filteredFaqs = [...this.globalFaqContent];
+      }
+    });
   }
 
   toggleItem(id: string): void {
@@ -153,7 +186,26 @@ export class GtaFaqComponent implements OnInit {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+      this.toggleItem(sectionId);
     }
+  }
+
+  filterFaqs(value: string) {
+    const filterValue = value.toLowerCase();
+
+    this.filteredFaqs = this.globalFaqContent.filter(faq =>{
+      const faqLabel = this.normalizeText(this._translationService.instant(faq.label));
+      const faqValue = this.normalizeText(this._translationService.instant(faq.value));
+      return faqLabel.toLowerCase().includes(filterValue) || faqValue.toLowerCase().includes(filterValue)
+    });
+  }
+
+  normalizeText(text: string): string {
+    return text
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/[¿?¡!.,]/g, '');
   }
 
 }
